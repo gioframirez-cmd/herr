@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You, Baby 💖</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at bottom, #0b1a2a, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+/* Moon (warm tone) */
+.moon {
+    position: absolute;
+    top: 10%;
+    width: 120px;
+    height: 120px;
+    background: #fff5cc;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 30px rgba(255, 230, 150, 0.6),
+        0 0 60px rgba(255, 220, 120, 0.3);
+}
+
+/* Dim yellow moonlight */
+.moonlight {
+    position: absolute;
+    top: 15%;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(255, 223, 120, 0.18), transparent 70%);
+    border-radius: 50%;
+}
+
+/* Message */
+.message {
+    position: relative;
+    max-width: 90%;
+    padding: 15px;
+    z-index: 2;
+}
+
+.message h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.message p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #e6e6e6;
+}
+
+/* Hearts */
+.heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: pink;
+    transform: rotate(45deg);
+    animation: floatUp linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: pink;
+    border-radius: 50%;
+}
+
+.heart::before { top: -7px; left: 0; }
+.heart::after { left: -7px; top: 0; }
+
+/* Flowers */
+.flower {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ffb6c1;
+    animation: floatUp linear infinite;
+}
+
+/* Animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0.6) rotate(45deg);
+        opacity: 0;
+    }
+    30% { opacity: 1; }
+    100% {
+        transform: translateY(-10vh) scale(1) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .message h1 { font-size: 18px; }
+    .message p { font-size: 13px; }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="moon"></div>
+<div class="moonlight"></div>
+
+<div class="message">
+    <h1>For You, Baby 💖</h1>
+    <p>
+        Baby, you’re not just beautiful… you feel like something heaven made so gently and perfectly.  
+        Your beauty isn’t just what I see, it’s what I feel every time I think of you.  
+        You shine in a way that’s soft, rare, and truly unforgettable.  
+        And honestly, baby… you are the most beautiful thing my heart has ever known.
+    </p>
+</div>
+
+<script>
+function createElement(className) {
+    const el = document.createElement('div');
+    el.className = className;
+
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 10000);
+}
+
+setInterval(() => createElement('heart'), 600);
+setInterval(() => createElement('flower'), 1000);
+</script>
+
+</body>
+</html>
